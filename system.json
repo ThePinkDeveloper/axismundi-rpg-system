@@ -1,0 +1,35 @@
+{
+  "id": "axismundirpg",
+  "title": "Axis Mundi",
+  "description": "The sistema de Axis Mundi para FoundryVTT!",
+  "version": "r1",
+  "compatibility": {
+    "minimum": "11",
+    "verified": "12"
+  },
+  "authors": [
+    {
+      "name": "Miguel Rosa",
+      "email": "worso.play@gmail.com"
+    }
+  ],
+  "esmodules": ["module/axismundirpg.mjs"],
+  "styles": ["styles/axismundirpg.css"],
+  "scripts": [],
+  "packs": [],
+  "languages": [
+    {
+      "lang": "es",
+      "name": "Español",
+      "path": "lang/es.json"
+    }
+  ],
+  "grid": {
+    "distance": 1.5,
+    "units": "m"
+  },
+  "gridDistance": 1.5,
+  "gridUnits": "m",
+  "primaryTokenAttribute": "hitPoints",
+  "secondaryTokenAttribute": null
+}

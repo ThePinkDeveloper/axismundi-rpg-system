@@ -1,0 +1,44 @@
+<form class="{{cssClass}}" autocomplete="off">
+  <header class="sheet-header">
+    <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}"/>
+    <div class="header-fields">
+      <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="{{localize 'AXISMUNDIRPG.Name'}}"/></h1>
+      <div class="grid grid-3col">
+        {{#if item.parent}}
+        <div class="resource">
+          <label for="system.cantidad.value" class="resource-label">Valor</label>
+          <input type="text" name="system.cantidad.value" value="{{data.cantidad.value}}" data-dtype="Number"/>
+        </div>
+        {{/if}}
+        {{#unless item.parent}}
+        <div class="resource">
+          <label for="system.valorBase.value" class="resource-label">Valor base</label>
+          <input type="text" name="system.valorBase.value" value="{{data.valorBase.value}}" data-dtype="Number"/>
+        </div>
+        <div class="resource">
+          <label for="system.caracteristica.value" class="resource-label">Característica</label>
+          <select class="size" name="system.caracteristica.value">
+            <option value="none" {{#if (eq data.caracteristica.value 'none')}} selected {{/if}} default>Ninguna</option>
+            <option value="str" {{#if (eq data.caracteristica.value 'str')}} selected {{/if}}>Fuerza</option>
+            <option value="int" {{#if (eq data.caracteristica.value 'int')}} selected {{/if}}>Inteligencia</option>
+            <option value="wis" {{#if (eq data.caracteristica.value 'wis')}} selected {{/if}}>Sabiduría</option>
+            <option value="dex" {{#if (eq data.caracteristica.value 'dex')}} selected {{/if}}>Destreza</option>
+            <option value="con" {{#if (eq data.caracteristica.value 'con')}} selected {{/if}}>Constitución</option>
+            <option value="cha" {{#if (eq data.caracteristica.value 'cha')}} selected {{/if}}>Carisma</option>
+          </select>
+        </div>
+        {{/unless}}
+      </div>
+    </div>
+  </header>
+
+  {{!-- Sheet Body --}}
+  <section class="sheet-body">
+
+    {{!-- Description --}}
+    <div class="description">
+      {{editor enrichedDescription target="system.description" button=true editable=editable}}
+    </div>
+
+  </section>
+</form>

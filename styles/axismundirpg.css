@@ -1,0 +1,906 @@
+/* Custom Fonts */
+@font-face {
+    font-family: 'Soutane';
+    src: url('soutane-webfont.eot');
+    src: url('soutane-webfont.eot?#iefix') format('embedded-opentype'),
+         url('soutane-webfont.woff') format('woff'),
+         url('soutane-webfont.ttf') format('truetype'),
+         url('soutane-webfont.svg#soutaneregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Soutane';
+    src: url('soutanebold-webfont.eot');
+    src: url('soutanebold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('soutanebold-webfont.woff') format('woff'),
+         url('soutanebold-webfont.ttf') format('truetype'),
+         url('soutanebold-webfont.svg#soutanebold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Soutane';
+    src: url('soutanebolditalic-webfont.eot');
+    src: url('soutanebolditalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('soutanebolditalic-webfont.woff') format('woff'),
+         url('soutanebolditalic-webfont.ttf') format('truetype'),
+         url('soutanebolditalic-webfont.svg#soutanebold_italic') format('svg');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Soutane';
+    src: url('soutaneitalic-webfont.eot');
+    src: url('soutaneitalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('soutaneitalic-webfont.woff') format('woff'),
+         url('soutaneitalic-webfont.ttf') format('truetype'),
+         url('soutaneitalic-webfont.svg#soutaneitalic') format('svg');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'SoutaneBlack';
+    src: url('soutaneblack-webfont.eot');
+    src: url('soutaneblack-webfont.eot?#iefix') format('embedded-opentype'),
+         url('soutaneblack-webfont.woff') format('woff'),
+         url('soutaneblack-webfont.ttf') format('truetype'),
+         url('soutaneblack-webfont.svg#soutaneblackregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'TeX Gyre Adventor';
+    src: url('texgyreadventor-regular-webfont.eot');
+    src: url('texgyreadventor-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('texgyreadventor-regular-webfont.woff') format('woff'),
+         url('texgyreadventor-regular-webfont.ttf') format('truetype'),
+         url('texgyreadventor-regular-webfont.svg#tex_gyre_adventorregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'TeX Gyre Adventor';
+    src: url('texgyreadventor-italic-webfont.eot');
+    src: url('texgyreadventor-italic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('texgyreadventor-italic-webfont.woff') format('woff'),
+         url('texgyreadventor-italic-webfont.ttf') format('truetype'),
+         url('texgyreadventor-italic-webfont.svg#tex_gyre_adventoritalic') format('svg');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'TeX Gyre Adventor';
+    src: url('texgyreadventor-bold-webfont.eot');
+    src: url('texgyreadventor-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('texgyreadventor-bold-webfont.woff') format('woff'),
+         url('texgyreadventor-bold-webfont.ttf') format('truetype'),
+         url('texgyreadventor-bold-webfont.svg#tex_gyre_adventorbold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'TeX Gyre Adventor';
+    src: url('texgyreadventor-bolditalic-webfont.eot');
+    src: url('texgyreadventor-bolditalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('texgyreadventor-bolditalic-webfont.woff') format('woff'),
+         url('texgyreadventor-bolditalic-webfont.ttf') format('truetype'),
+         url('texgyreadventor-bolditalic-webfont.svg#tex_gyre_adventorbold_italic') format('svg');
+    font-weight: bold;
+    font-style: italic;
+}
+
+/* Global styles */
+.game {
+  font-family: "Soutane", "Century Gothic", "TeX Gyre Adventor", var(--font-primary);
+}
+
+.rollable:hover, .rollable:focus {
+  color: #000;
+  text-shadow: 0 0 10px red;
+  cursor: pointer;
+}
+
+.chat-message {
+  font-family: "Century Gothic", "TeX Gyre Adventor", var(--font-primary);
+}
+
+.chat-message .chat-item-name {
+  color: black;
+  display: block;
+  font-size: 14px;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px #aaa;
+}
+
+.chat-message .chat-item-description {
+  font-family: "Soutane", "Century Gothic", "TeX Gyre Adventor", var(--font-primary);
+  font-size: 14px;
+}
+
+.axismundirpg .success-text,
+.chat-message .chat-item-description .chat-roll-success {
+  color: green;
+  font-variant: small-caps;
+  font-weight: bold;
+  text-shadow: 0 0 2px;
+}
+
+.axismundirpg .failure-text,
+.chat-message .chat-item-description .chat-roll-failure {
+  color: darkred;
+  font-variant: small-caps;
+  font-weight: bold;
+  text-shadow: 0 0 2px;
+}
+
+.chat-message .chat-item-description .chat-roll-target-number {
+  font-weight: bold;
+  text-shadow: 0 0 2px;
+}
+
+.grid,
+.grid-2col {
+  display: grid;
+  grid-column: span 2 / span 2;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin: 10px 0;
+  padding: 0;
+}
+
+.grid-3col {
+  grid-column: span 3 / span 3;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.grid-4col {
+  grid-column: span 4 / span 4;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.grid-5col {
+  grid-column: span 5 / span 5;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.grid-6col {
+  grid-column: span 6 / span 6;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+.grid-7col {
+  grid-column: span 7 / span 7;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+}
+
+.grid-8col {
+  grid-column: span 8 / span 8;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+}
+
+.grid-9col {
+  grid-column: span 9 / span 9;
+  grid-template-columns: repeat(9, minmax(0, 1fr));
+}
+
+.grid-10col {
+  grid-column: span 10 / span 10;
+  grid-template-columns: repeat(10, minmax(0, 1fr));
+}
+
+.grid-11col {
+  grid-column: span 11 / span 11;
+  grid-template-columns: repeat(11, minmax(0, 1fr));
+}
+
+.grid-12col {
+  grid-column: span 12 / span 12;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+}
+
+.grid-start-2 {
+  grid-column-start: 2;
+}
+
+.grid-start-3 {
+  grid-column-start: 3;
+}
+
+.grid-start-4 {
+  grid-column-start: 4;
+}
+
+.grid-start-5 {
+  grid-column-start: 5;
+}
+
+.grid-start-6 {
+  grid-column-start: 6;
+}
+
+.grid-start-7 {
+  grid-column-start: 7;
+}
+
+.grid-start-8 {
+  grid-column-start: 8;
+}
+
+.grid-start-9 {
+  grid-column-start: 9;
+}
+
+.grid-start-10 {
+  grid-column-start: 10;
+}
+
+.grid-start-11 {
+  grid-column-start: 11;
+}
+
+.grid-start-12 {
+  grid-column-start: 12;
+}
+
+.grid-span-2 {
+  grid-column-end: span 2;
+}
+
+.grid-span-3 {
+  grid-column-end: span 3;
+}
+
+.grid-span-4 {
+  grid-column-end: span 4;
+}
+
+.grid-span-5 {
+  grid-column-end: span 5;
+}
+
+.grid-span-6 {
+  grid-column-end: span 6;
+}
+
+.grid-span-7 {
+  grid-column-end: span 7;
+}
+
+.grid-span-8 {
+  grid-column-end: span 8;
+}
+
+.grid-span-9 {
+  grid-column-end: span 9;
+}
+
+.grid-span-10 {
+  grid-column-end: span 10;
+}
+
+.grid-span-11 {
+  grid-column-end: span 11;
+}
+
+.grid-span-12 {
+  grid-column-end: span 12;
+}
+
+.flex-group-center,
+.flex-group-left,
+.flex-group-right {
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  text-align: center;
+}
+
+.flex-group-left {
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.flex-group-right {
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  text-align: right;
+}
+
+.flexshrink {
+  -webkit-box-flex: 0;
+  -ms-flex: 0;
+  flex: 0;
+}
+
+.flex-between {
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.flexlarge {
+  -webkit-box-flex: 2;
+  -ms-flex: 2;
+  flex: 2;
+}
+
+.flex-align-center {
+  align-self: center;
+}
+
+.align-left {
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.align-right {
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  text-align: right;
+}
+
+.align-center {
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.vertical-line {
+  border: none;
+  border-left: 1px solid var(--color-border-light-primary);
+  border-right: 1px solid var(--color-border-light-highlight);
+  width: 0;
+}
+
+/* Styles limited to axismundirpg sheets */
+
+.axismundirpg.sheet.actor {
+  font-family: "Century Gothic", "TeX Gyre Adventor", "Soutane", var(--font-primary);
+}
+
+.axismundirpg .sheet-header {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 auto;
+  flex: 0 auto;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  margin-bottom: 10px;
+}
+
+.axismundirpg .sheet-header .profile-img {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 100px;
+  flex: 0 0 100px;
+  height: 100px;
+  margin-right: 10px;
+}
+
+.axismundirpg .sheet-header .header-fields {
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+.axismundirpg .sheet-header h1.charname {
+  height: 50px;
+  padding: 0px;
+  margin: 5px 0;
+  border-bottom: 0;
+}
+
+.axismundirpg .sheet-header h1.charname input {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+.axismundirpg .sheet-tabs {
+  -webkit-box-flex: 0;
+  -ms-flex: 0;
+  flex: 0;
+}
+
+.axismundirpg .sheet-body,
+.axismundirpg .sheet-body .editor,
+.axismundirpg .sheet-body .tab,
+.axismundirpg .sheet-body .tab .editor {
+  height: calc(100% - 2px);
+}
+
+.axismundirpg .sheet-body .description {
+  height: calc(100% - 2px);
+  background-color: rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--color-border-light-tertiary);
+  border-radius: 3px;
+  padding: 0 5px 0 5px;
+}
+
+.axismundirpg .sheet-body .tab.biography {
+  max-height: calc(100% - 53px);
+}
+
+.axismundirpg .editor-content {
+  font-family: "Soutane", "Century Gothic", "TeX Gyre Adventor", var(--font-primary);
+  font-size: 1em;
+  overflow-y: hidden;
+}
+
+.axismundirpg .tox .tox-editor-container {
+  background: #fff;
+}
+
+.axismundirpg .tox .tox-edit-area {
+  padding: 0 8px;
+}
+
+.axismundirpg .resource-content {
+  white-space: nowrap;
+}
+
+.axismundirpg .resource-label {
+  font-weight: bold;
+}
+
+.axismundirpg .items-header {
+  height: 28px;
+  margin: 2px 0;
+  padding: 0;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.05);
+  border: 2px groove #eeede0;
+  font-weight: bold;
+}
+
+.axismundirpg .items-header > * {
+  font-size: 14px;
+  text-align: center;
+}
+
+.axismundirpg .items-header .item-name {
+  font-weight: bold;
+  padding-left: 5px;
+  text-align: left;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.axismundirpg .items-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  color: #444;
+}
+
+.axismundirpg .items-list .item-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.axismundirpg .items-list .item-name {
+  -webkit-box-flex: 2;
+  -ms-flex: 2;
+  flex: 2;
+  margin: 0;
+  overflow: hidden;
+  font-size: 13px;
+  text-align: left;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.axismundirpg .items-list .item-name-wf1 {
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  margin: 0;
+  overflow: hidden;
+  font-size: 13px;
+  text-align: left;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.axismundirpg .items-list .item-detail {
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  margin: 0;
+  overflow: hidden;
+  font-size: 13px;
+  text-align: left;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.axismundirpg .items-list .item-detail-wf15 {
+  -webkit-box-flex: 1.5;
+  -ms-flex: 1.5;
+  flex: 1.5;
+  margin: 0;
+  overflow: hidden;
+  font-size: 13px;
+  text-align: left;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.axismundirpg .items-list .item-detail-wf05 {
+  -webkit-box-flex: 0.5;
+  -ms-flex: 0.5;
+  flex: 0.5;
+  margin: 0;
+  overflow: hidden;
+  font-size: 13px;
+  text-align: left;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.axismundirpg .items-list .item-name h3, .axismundirpg .items-list .item-name h4 {
+  margin: 0;
+  white-space: nowrap;
+  overflow-x: hidden;
+}
+
+.axismundirpg .items-list .item-controls {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 70px;
+  flex: 0 0 70px;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+}
+
+.axismundirpg .items-list .item-controls a {
+  font-size: 12px;
+  text-align: center;
+  margin: 0 6px;
+}
+
+.axismundirpg .items-list .item {
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 0 2px;
+  border-bottom: 1px solid #c9c7b8;
+}
+
+.axismundirpg .items-list .item:last-child {
+  border-bottom: none;
+}
+
+.axismundirpg .items-list .item .item-name {
+  color: #191813;
+}
+
+.axismundirpg .items-list .item .item-name .item-image {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 30px;
+  flex: 0 0 30px;
+  height: 30px;
+  background-size: 30px;
+  border: none;
+  margin-right: 5px;
+}
+
+.axismundirpg .items-list .item-prop {
+  text-align: center;
+  border-left: 1px solid #c9c7b8;
+  border-right: 1px solid #c9c7b8;
+  font-size: 12px;
+}
+
+.axismundirpg .items-list .item .item-name .item-image img,
+.axismundirpg .items-list .item-prop img,
+.axismundirpg .resources img {
+  border: none;
+  vertical-align: middle;
+}
+
+.axismundirpg .items-list .items-header {
+  height: 28px;
+  margin: 2px 0;
+  padding: 0;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.05);
+  border: 2px groove #eeede0;
+  font-weight: bold;
+}
+
+.axismundirpg .items-list .items-header > * {
+  font-size: 12px;
+  text-align: center;
+}
+
+.axismundirpg .items-list .items-header .item-name {
+  padding-left: 5px;
+  text-align: left;
+}
+
+.axismundirpg .item-detail {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 200px;
+  flex: 0 0 200px;
+  padding: 0 8px;
+}
+
+.axismundirpg .effects .item .effect-source,
+.axismundirpg .effects .item .effect-duration,
+.axismundirpg .effects .item .effect-controls {
+  text-align: center;
+  border-left: 1px solid #c9c7b8;
+  border-right: 1px solid #c9c7b8;
+  font-size: 12px;
+}
+
+.axismundirpg .effects .item .effect-controls {
+  border: none;
+}
+
+.resource-label {
+  margin-bottom: 0.1em;
+}
+
+.font-size-short {
+  font-size: 10px;
+  margin: 0;
+}
+
+.font-size-medium {
+  font-size: 14px;
+  font-weight: bolder;
+  margin: 0;
+}
+
+.font-size-medium-light {
+  font-size: 13px;
+  margin: 0;
+}
+
+.f05 {
+  flex: 0.5;
+}
+
+.f10 {
+  flex: 1;
+}
+
+.f14 {
+  flex: 1.4;
+}
+
+.f15 {
+  flex: 1.5;
+}
+
+input[type="checkbox"] {
+    flex: 0 0 15px;
+    width: 15px;
+    height: 15px;
+    margin: 3px 5px;
+}
+
+.gtc05-1-1-05 {
+  grid-template-columns: 0.4fr 0.2fr 1.2fr 1fr 0.5fr 0.5fr;
+}
+
+.gtc1-05-1-1-075 {
+  grid-template-columns: 1fr 0.5fr 1fr 1fr 0.75fr;
+}
+
+.activo {
+  text-shadow: 0 0 10px red;
+}
+
+.bgcred {
+  background-color: #ff000010;
+}
+
+.axismundirpg .item-detail-pericia {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 200px;
+  flex: 0 0 200px;
+  padding: 0 8px;
+  text-align: center;
+}
+
+input.w50px {
+  width: 50px;
+  text-align: center;
+}
+
+.d-flex {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  text-align: center;
+}
+
+.borde {
+  padding: 3px;
+  background-color: lightgray;
+  border: solid 1px black;
+}
+
+.borde-base {
+  background-color: lightgray;
+  border: solid 1px black;
+}
+
+.axismundirpg .items-list .item-controls-pericia {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 70px;
+  flex: 0 0 70px;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.invisible {
+  visibility: hidden;
+}
+
+.grc-112 {
+  grid-template-columns: 1fr 1fr 2fr;
+}
+
+.pad3 {
+  padding: 3px;
+}
+
+.bl1 {
+  padding-right: 10px;
+  border-right: 1px solid #aaa;
+}
+
+.spellLevel,
+.sfLevel {
+  width: 100%;
+}
+
+.gtc-03-08-12 {
+  grid-template-columns: 0.3fr 0.8fr 1.2fr;
+}
+
+.mt-10px {
+  margin-top: 10px;
+}
+
+.mb-10px {
+  margin-bottom: 10px;
+}
+
+.gtc-02-10 {
+  grid-template-columns: 0.17fr 1fr;
+}
+
+.flotante:hover, .flotante:focus {
+  color: #000;
+}
+
+.w120 {
+  width: 120%;
+}
+
+.w17 {
+  width: 17%;
+}
+
+.w20 {
+  width: 20%;
+}
+
+.w30 {
+  width: 30%;
+}
+
+.w40 {
+  width: 40%;
+}
+
+.w75 {
+  width: 75%;
+}
+
+.w80 {
+  width: 80%;
+}
+
+
+.gtc02-02 {
+  grid-template-columns: 0.2fr 0.2fr;
+}
+
+.column-span-2 {
+  grid-column: span 2; 
+}
+
+.column-span-4 {
+  grid-column: span 4; 
+}
+
+.d-flex-start {
+  display: flex;
+  justify-content: flex-start;
+  text-align: center;
+  width: 100%
+}
+
+.d-flex-pg {
+  display: flex;
+  justify-content: flex-start;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.mr10 {
+  margin-right: 10px;
+}
+
+.ml10 {
+  margin-left: 10px;
+}

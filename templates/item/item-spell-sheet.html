@@ -1,0 +1,61 @@
+<form class="{{cssClass}}" autocomplete="off">
+  <header class="sheet-header">
+    <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}"/>
+    <div class="header-fields">
+      <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="{{localize 'AXISMUNDIRPG.Name'}}"/></h1>
+      <div class="grid grid-3col gtc-03-08-12">
+        <div class="resource">
+          <label for="system.spellLevel.value" class="resource-label">{{localize data.spellLevel.label}}</label>
+          <select class="spellLevel" name="system.spellLevel.value">
+            <option value="1" {{#if (eq data.spellLevel.value '1')}} selected {{/if}}>1</option>
+            <option value="2" {{#if (eq data.spellLevel.value '2')}} selected {{/if}}>2</option>
+            <option value="3" {{#if (eq data.spellLevel.value '3')}} selected {{/if}}>3</option>
+            <option value="4" {{#if (eq data.spellLevel.value '4')}} selected {{/if}}>4</option>
+            <option value="5" {{#if (eq data.spellLevel.value '5')}} selected {{/if}}>5</option>
+            <option value="6" {{#if (eq data.spellLevel.value '6')}} selected {{/if}}>6</option>
+          </select>
+        </div>
+        <div class="resource">
+          <label for="system.type.value" class="resource-label">{{localize data.type.label}}</label>
+          <input type="text" name="system.type.value" value="{{data.type.value}}" data-dtype="String"/>
+        </div>
+        <div class="resource">
+          <label for="system.category.value" class="resource-label">{{localize data.category.label}}</label>
+          <input type="text" name="system.category.value" value="{{data.category.value}}" data-dtype="String"/>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  {{!-- Sheet Body --}}
+  <section class="sheet-body">
+    <div class="flex flex-col">
+      <div class="resource">
+        <label for="system.target.value" class="resource-label">{{localize data.target.label}}</label>
+        <input type="text" name="system.target.value" value="{{data.target.value}}" data-dtype="String"/>
+      </div>
+      <div class="resource mt-10px">
+        <label for="system.range.value" class="resource-label">{{localize data.range.label}}</label>
+        <input type="text" name="system.range.value" value="{{data.range.value}}" data-dtype="String"/>
+      </div>
+      <div class="resource mt-10px">
+        <label for="system.duration.value" class="resource-label">{{localize data.duration.label}}</label>
+        <input type="text" name="system.duration.value" value="{{data.duration.value}}" data-dtype="String"/>
+      </div>
+      <div class="resource mt-10px">
+        <label for="system.resistance.value" class="resource-label">{{localize data.resistance.label}}</label>
+        <input type="text" name="system.resistance.value" value="{{data.resistance.value}}" data-dtype="String"/>
+      </div>
+      <div class="resource mt-10px mb-10px">
+        <label for="system.cost.value" class="resource-label">{{localize data.cost.label}}</label>
+        <input type="text" name="system.cost.value" value="{{data.cost.value}}" data-dtype="String"/>
+      </div>
+    </div>
+    {{!-- Description Tab --}}
+    <label for="description" class="resource-label">Efectos:</label>
+    <div class="description">
+      {{editor enrichedDescription target="system.description" button=true editable=editable}}
+    </div>
+  </section>
+
+</form>

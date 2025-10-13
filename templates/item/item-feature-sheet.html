@@ -1,0 +1,44 @@
+<form class="{{cssClass}}" autocomplete="off">
+  <header class="sheet-header">
+    <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}"/>
+    <div class="header-fields">
+      <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="{{localize 'AXISMUNDIRPG.Name'}}"/></h1>
+      <div class="grid grid-2col gtc-02-10">
+        <div class="resource">
+          <label for="system.sfLevel.value" class="resource-label">{{localize data.sfLevel.label}}</label>
+          <select class="sfLevel" name="system.sfLevel.value">
+            <option value="1" {{#if (eq data.sfLevel.value '1')}} selected {{/if}}>1</option>
+            <option value="2" {{#if (eq data.sfLevel.value '2')}} selected {{/if}}>2</option>
+            <option value="3" {{#if (eq data.sfLevel.value '3')}} selected {{/if}}>3</option>
+            <option value="4" {{#if (eq data.sfLevel.value '4')}} selected {{/if}}>4</option>
+            <option value="5" {{#if (eq data.sfLevel.value '5')}} selected {{/if}}>5</option>
+            <option value="6" {{#if (eq data.sfLevel.value '6')}} selected {{/if}}>6</option>
+            <option value="7" {{#if (eq data.sfLevel.value '7')}} selected {{/if}}>7</option>
+            <option value="8" {{#if (eq data.sfLevel.value '8')}} selected {{/if}}>8</option>
+            <option value="9" {{#if (eq data.sfLevel.value '9')}} selected {{/if}}>9</option>
+            <option value="10" {{#if (eq data.sfLevel.value '10')}} selected {{/if}}>10</option>
+            <option value="11" {{#if (eq data.sfLevel.value '11')}} selected {{/if}}>11</option>
+            <option value="12" {{#if (eq data.sfLevel.value '12')}} selected {{/if}}>12</option>
+            <option value="13" {{#if (eq data.sfLevel.value '13')}} selected {{/if}}>13</option>
+            <option value="14" {{#if (eq data.sfLevel.value '14')}} selected {{/if}}>14</option>
+          </select>
+        </div>
+        <div class="resource">
+          <label for="system.sfType.value" class="resource-label">{{localize data.sfType.label}}</label>
+          <input type="text" name="system.sfType.value" value="{{data.sfType.value}}" data-dtype="String"/>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  {{!-- Sheet Body --}}
+  <section class="sheet-body">
+
+    {{!-- Description Tab --}}
+    <div class="description">
+      {{editor enrichedDescription target="system.description" button=true editable=editable}}
+    </div>
+
+  </section>
+
+</form>

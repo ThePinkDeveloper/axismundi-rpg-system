@@ -1,0 +1,144 @@
+<form class="{{cssClass}} {{actor.type}} flexcol" autocomplete="off">
+
+  {{!-- Sheet Header --}}
+  <header class="sheet-header">
+    <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100"/>
+    <div class="header-fields">
+      <h1 class="charname"><input name="name" type="text" value="{{actor.name}}" placeholder="{{localize 'AXISMUNDIRPG.Name'}}" data-dtype="String"/></h1>
+      <div class="resources grid grid-6col gtc05-1-1-05">
+
+        <div class="resource flex-group-center">
+          <label for="system.hitPoints.value" class="resource-label">P.G.</label>
+          <div class="resource-content flexrow flex-center flex-between">
+            <h1 class="charname"><input type="text" name="system.hitPoints.value" value="{{data.hitPoints.value}}" data-dtype="Number"/></h1>
+          </div>
+        </div>
+
+        <div class="resource flex-group-center bl1">
+          <label for="system.hitPoints.value" class="resource-label">Max.</label>
+          <div class="resource-content flexrow flex-center flex-between">
+            <input type="text" name="system.hitPoints.max" value="{{data.hitPoints.max}}" data-dtype="Number"/>
+          </div>
+        </div>
+
+        <div class="resource flex-group-center">
+          <label for="system.level.value" class="resource-label">Clase</label>
+          <div class="resource-content flexrow flex-center flex-between">
+            <input class="f15" type="text" name="system.class.value" value="{{data.class.value}}" data-dtype="String"/>
+          </div>
+          <label for="system.xp.value" class="resource-label">PX Actual</label>
+          <div class="resource-content flexrow flex-center flex-between">
+            <input type="text" name="system.xp.value" value="{{data.xp.value}}" data-dtype="Number"/>
+          </div>
+        </div>
+
+        <div class="resource flex-group-center">
+          <label for="system.requisitoPrimario.value" class="resource-label">Req. Primario</label>
+          <div class="resource-content flexrow flex-center flex-between">
+            <select class="size" name="system.requisitoPrimario.value">
+              <option value="none" {{#if (eq data.requisitoPrimario.value 'none')}} selected {{/if}}></option>
+              <option value="str" {{#if (eq data.requisitoPrimario.value 'str')}} selected {{/if}}>Fuerza</option>
+              <option value="dex" {{#if (eq data.requisitoPrimario.value 'dex')}} selected {{/if}}>Destreza</option>
+              <option value="con" {{#if (eq data.requisitoPrimario.value 'con')}} selected {{/if}}>Constitución</option>
+              <option value="int" {{#if (eq data.requisitoPrimario.value 'int')}} selected {{/if}}>Inteligencia</option>
+              <option value="wis" {{#if (eq data.requisitoPrimario.value 'wis')}} selected {{/if}}>Sabiduría</option>
+              <option value="cha" {{#if (eq data.requisitoPrimario.value 'cha')}} selected {{/if}}>Carisma</option>
+            </select>
+          </div>
+          <label for="system.xp.value" class="resource-label">PX Sig. Nivel</label>
+          <div class="resource-content flexrow flex-center flex-between">
+            <input type="text" name="system.xp.next" value="{{data.xp.next}}" data-dtype="Number"/>
+          </div>
+        </div>
+
+        <div class="resource flex-group-center bl1">
+          <label for="system.level.value" class="resource-label">Nivel</label>
+          <div class="resource-content flexrow flex-center flex-between">
+            <h1><input class="f05" type="text" name="system.level.value" value="{{data.level.value}}" data-dtype="Number"/></h1>
+          </div>
+        </div>
+
+        <div class="resource flex-group-center gc05">
+          <label for="system.size.value" class="resource-label">Tamaño</label>
+          <div class="resource-content flexrow flex-center flex-between">
+            <select class="size" name="system.size.value">
+              <option value="P" {{#if (eq data.size.value 'P')}} selected {{/if}}>Pequeño</option>
+              <option value="H" {{#if (eq data.size.value 'H')}} selected {{/if}}>Humano</option>
+              <option value="G" {{#if (eq data.size.value 'G')}} selected {{/if}}>Grande</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  {{!-- Sheet Tab Navigation --}}
+  <nav class="sheet-tabs tabs" data-group="primary">
+    {{!-- Default tab is specified in actor-sheet.mjs --}}
+    <a class="item" data-tab="combat">{{localize 'AXISMUNDIRPG.TabCombat'}}</a>
+    <a class="item" data-tab="items">{{localize 'AXISMUNDIRPG.TabItems'}}</a>
+    <a class="item" data-tab="spells">{{localize 'AXISMUNDIRPG.TabSpells'}}</a>
+    <a class="item" data-tab="description">{{localize 'AXISMUNDIRPG.TabPericias'}}</a>
+    <a class="item" data-tab="features">{{localize 'AXISMUNDIRPG.TabFeatures'}}</a>
+  </nav>
+
+  {{!-- Sheet Body --}}
+  <section class="sheet-body">
+
+    {{!-- Combat Tab --}}
+    <div class="tab combat" data-group="primary" data-tab="combat">
+      <section class="grid grid-3col">
+        <aside class="sidebar">
+          <h3 class="resource-label">CARACTERÍSTICAS</h3>
+          <br>
+          <div class="abilities flexcol">
+            {{#each data.abilities as |ability key|}}
+            <div class="ability flexrow flex-group-center">
+              <label for="system.abilities.{{key}}.value" class="resource-label rollable flexlarge align-left" title="{{localize 'AXISMUNDIRPG.Roll'}} de {{ability.label}}" data-roll="d20" data-label="{{ability.label}}" data-target-number="{{calculateAbilityTargetNumber ../data.level.value}}">{{ability.label}}</label>
+              <input type="text" name="system.abilities.{{key}}.value" value="{{ability.value}}" data-dtype="Number"/>
+              <span class="ability-mod rollable" title="{{localize 'AXISMUNDIRPG.Roll'}} de {{ability.label}}" data-roll="d20{{numberFormat ability.bonus decimals=0 sign=true}}" data-label="{{ability.label}}" data-target-number="{{calculateAbilityTargetNumber ../data.level.value}}">{{numberFormat ability.bonus decimals=0 sign=true}}</span>
+            </div>
+            {{/each}}
+            <br>
+            <h3 class="resource-label">TIRADAS DE SALVACIÓN</h3>
+            <br>
+            {{#each data.saves as |save key|}}
+            <div class="ability flexrow flex-group-center">
+              <label for="system.saves.{{key}}.value" class="resource-label rollable flexlarge align-left" title="{{localize 'AXISMUNDIRPG.SavingThrow'}} de {{save.label}}" data-roll="d20" data-label="Salvación contra {{save.label}}" data-target-number="{{save.value}}">{{save.label}}</label>
+              <input type="text" name="system.saves.{{key}}.value" value="{{save.value}}" data-dtype="Number"/>
+            </div>
+            {{/each}}
+          </div>
+        </aside>
+
+        {{!-- For the main combat list, span the right two columns --}}
+        <section class="main grid-span-2">
+          {{> "systems/axismundirpg/templates/actor/parts/actor-combat.html"}}
+        </section>
+
+      </section>
+    </div>
+
+    {{!-- Description Tab --}}
+    <div class="tab biography" data-group="primary" data-tab="description">
+      {{> "systems/axismundirpg/templates/actor/parts/actor-pericias.html"}}
+    </div>
+
+    {{!-- Owned Items Tab --}}
+    <div class="tab items" data-group="primary" data-tab="items">
+      {{> "systems/axismundirpg/templates/actor/parts/actor-items.html"}}
+    </div>
+
+    {{!-- Owned Spells Tab --}}
+    <div class="tab spells" data-group="primary" data-tab="spells">
+      {{> "systems/axismundirpg/templates/actor/parts/actor-spells.html"}}
+    </div>
+
+    {{!-- Features Tab --}}
+    <div class="tab features flexcol" data-group="primary" data-tab="features">
+      {{> "systems/axismundirpg/templates/actor/parts/actor-features.html"}}
+    </div>
+
+  </section>
+</form>
+

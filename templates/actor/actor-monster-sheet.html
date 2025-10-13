@@ -1,0 +1,135 @@
+<form class="{{cssClass}} {{actor.type}} flexcol" autocomplete="off">
+
+  {{!-- Sheet Header --}}
+  <header class="sheet-header">
+    <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100"/>
+    <div class="header-fields">
+      <h1 class="charname"><input name="name" type="text" value="{{actor.name}}" placeholder="{{localize 'AXISMUNDIRPG.Name'}}" data-dtype="String"/></h1>
+      <div class="d-flex-start">
+        <div class="d-flex-pg w17">
+          <div class="mr10">
+            <label for="system.hitPoints.value" class="resource-label">P.G.</label>
+            <div class="resource-content flexrow flex-center flex-between">
+              <h1 class="charname"><input type="text" name="system.hitPoints.value" value="{{data.hitPoints.value}}" data-dtype="Number"/></h1>
+            </div>
+          </div>
+        
+          <div class="bl1">
+            <label for="system.hitPoints.value" class="resource-label">Max.</label>
+            <div class="resource-content flexrow flex-center flex-between">
+              <input type="text" name="system.hitPoints.max" value="{{data.hitPoints.max}}" data-dtype="Number"/>
+            </div>
+          </div>
+        </div>
+
+        <div class="ml10 w80">
+
+          <div class="resources grid grid-8col">
+
+            <div class="resource flex-group-center column-span-2">
+              <label for="system.hitDice" class="resource-label rollable" title="{{localize 'AXISMUNDIRPG.Roll'}} {{localize data.hitDice.label}}" data-roll="{{data.hitDice.number}}{{data.hitDice.size}}{{numberFormat data.hitDice.mod decimals=0 sign=true}}" data-label="{{localize data.hitDice.label}}">{{localize data.hitDice.abbr}}</label>
+              <div class="resource-content flexrow flex-center flex-between">
+                <input type="number" name="system.hitDice.number" value="{{data.hitDice.number}}" data-dtype="Number"/>
+                <input type="text" name="system.hitDice.size" value="{{data.hitDice.size}}" data-dtype="String"/>
+                <span class="flexshrink flex-align-center">+</span>
+                <input type="number" name="system.hitDice.mod" value="{{data.hitDice.mod}}" data-dtype="Number" sign="true"/>
+              </div>
+            </div>
+
+            <div class="resource flex-group-center column-span-2">
+              <label for="system.size.value" class="resource-label">{{localize 'AXISMUNDIRPG.Size'}}</label>
+              <input type="text" name="system.size.value" value="{{data.size.value}}" data-dtype="String"/>
+            </div>
+              
+            <div class="resource flex-group-center column-span-2">
+              <label for="system.type.value" class="resource-label">{{localize 'AXISMUNDIRPG.Type'}}</label>
+              <input type="text" name="system.type.value" value="{{data.type.value}}" data-dtype="String"/>
+            </div>
+
+            <div class="resource flex-group-center column-span-2">
+              <label for="system.shape.value" class="resource-label">{{localize 'AXISMUNDIRPG.Shape'}}</label>
+              <input type="text" name="system.shape.value" value="{{data.shape.value}}" data-dtype="String"/>
+            </div>
+
+            <div class="resource flex-group-center column-span-2">
+              <label for="system.numberAppearing.value" class="resource-label">{{localize 'AXISMUNDIRPG.NumberAppearingAbbr'}}</label>
+              <input type="text" name="system.numberAppearing.value" value="{{data.numberAppearing.value}}" data-dtype="String"/>
+            </div>
+
+            <div class="resource flex-group-center">
+              <label for="system.lairPercentage.value" class="resource-label">{{localize 'AXISMUNDIRPG.LairPercentageAbbr'}}</label>
+              <input type="number" name="system.lairPercentage.value" value="{{data.lairPercentage.value}}" data-dtype="Number"/>
+            </div>
+
+            <div class="resource flex-group-center">
+              <label for="system.monsterSaves.value" class="resource-label">{{localize 'AXISMUNDIRPG.SavesAbbr'}}</label>
+              <input type="number" name="system.monsterSaves.value" value="{{data.monsterSaves.value}}" data-dtype="Number"/>
+            </div>
+
+            <div class="resource flex-group-center">
+              <label for="system.reaction.value" class="resource-label">{{localize 'AXISMUNDIRPG.ReactionAbbr'}}</label>
+              <input type="number" name="system.reaction.value" value="{{data.reaction.value}}" data-dtype="String"/>
+            </div>
+
+            <div class="resource flex-group-center">
+              <label for="system.morale.value" class="resource-label">{{localize 'AXISMUNDIRPG.Morale'}}</label>
+              <input type="number" name="system.morale.value" value="{{data.morale.value}}" data-dtype="Number"/>
+            </div>
+
+            <div class="resource flex-group-center">
+              <label for="system.xp.value" class="resource-label">{{localize 'AXISMUNDIRPG.ExperiencePointsAbbr'}}</label>
+              <input type="number" name="system.xp.value" value="{{data.xp.value}}" data-dtype="Number"/>
+            </div>
+
+            <div class="resource flex-group-center">
+              <label for="system.treasure.value" class="resource-label">Tesoro</label>
+              <input type="text" name="system.treasure.value" value="{{data.treasure.value}}" data-dtype="String"/>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  {{!-- Sheet Tab Navigation --}}
+  <nav class="sheet-tabs tabs" data-group="primary">
+    {{!-- Default tab is specified in actor-sheet.mjs --}}
+    <a class="item" data-tab="combat">{{localize 'AXISMUNDIRPG.TabCombat'}}</a>
+    <a class="item" data-tab="description">{{localize 'AXISMUNDIRPG.TabDescription'}}</a>
+  </nav>
+
+  {{!-- Sheet Body --}}
+  <section class="sheet-body">
+
+    {{!-- Combat Tab --}}
+    <div class="tab combat" data-group="primary" data-tab="combat">
+      <section class="grid grid-3col">
+        <aside class="sidebar">
+
+          <div class="abilities flexcol">
+            {{#each data.saves as |save key|}}
+            <div class="ability flexrow flex-group-center">
+              <label for="system.saves.{{key}}.value" class="resource-label rollable flexlarge align-left" title="{{localize 'AXISMUNDIRPG.Roll'}} {{localize 'AXISMUNDIRPG.SavingThrow'}}" data-roll="d20" data-label="Salvación - {{save.label}}" data-target-number="{{save.value}}">{{save.label}}</label>
+              <span class="ability-mod rollable" title="{{localize 'AXISMUNDIRPG.SavingThrow'}} de {{save.label}}" data-roll="d20">{{save.value}}</span>
+            </div>
+            {{/each}}
+          </div>
+        </aside>
+
+        {{!-- For the main combat list, span the right two columns --}}
+        <section class="main grid-span-2">
+          {{> "systems/axismundirpg/templates/actor/parts/actor-combat.html"}}
+          {{> "systems/axismundirpg/templates/actor/parts/monster-skills.html"}}
+        </section>
+
+      </section>
+    </div>
+
+    {{!-- Description Tab --}}
+    <div class="tab description" data-group="primary" data-tab="description">
+      {{editor enrichedBiography target="system.biography" button=true editable=editable}}
+    </div>
+
+  </section>
+</form>

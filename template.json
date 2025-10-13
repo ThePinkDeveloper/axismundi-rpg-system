@@ -1,0 +1,390 @@
+{
+  "Actor": {
+    "types": ["character", "monster"],
+    "templates": {
+      "base": {
+        "size": {
+          "value": "H"
+        },
+        "armorClass": {
+          "value": 11,
+          "label": "AXISMUNDIRPG.ArmorClass",
+          "abbr": "AXISMUNDIRPG.ArmorClassAbbr"
+        },
+        "meleeArmorClass": {
+          "value": 10,
+          "label": "AXISMUNDIRPG.MeleeArmorClass",
+          "abbr": "AXISMUNDIRPG.MeleeArmorClassAbbr"
+        },
+        "rangedArmorClass": {
+          "value": 10,
+          "label": "AXISMUNDIRPG.RangedArmorClass",
+          "abbr": "AXISMUNDIRPG.RangedArmorClassAbbr"
+        },
+        "attackBonus": {
+          "value": 1,
+          "label": "AXISMUNDIRPG.AttackBonus",
+          "abbr": "AXISMUNDIRPG.AttackBonusAbbr"
+        },
+        "meleeAttackBonus": {
+          "value": 0,
+          "label": "AXISMUNDIRPG.MeleeAttackBonus",
+          "abbr": "AXISMUNDIRPG.MeleeAttackBonusAbbr"
+        },
+        "rangedAttackBonus": {
+          "value": 0,
+          "label": "AXISMUNDIRPG.RangedAttackBonus",
+          "abbr": "AXISMUNDIRPG.RangedAttackBonusAbbr"
+        },
+        "meleeDamageBonus": {
+          "value": 0,
+          "label": "AXISMUNDIRPG.MeleeDamageBonus",
+          "abbr": "AXISMUNDIRPG.MeleeDamageBonusAbbr"
+        },
+        "rangedDamageBonus": {
+          "value": 0,
+          "label": "AXISMUNDIRPG.RangedDamageBonus",
+          "abbr": "AXISMUNDIRPG.RangedDamageBonusAbbr"
+        },
+        "sweepingAttacks": {
+          "value": 0,
+          "label": "AXISMUNDIRPG.SweepingAttacks"
+        },
+        "biography": "",
+        "hitPoints": {
+          "value": 10,
+          "max": 10,
+          "label": "AXISMUNDIRPG.HitPoints",
+          "abbr": "AXISMUNDIRPG.HitPointsAbbr"
+        },
+        "initBonus": {
+          "value": 0,
+          "label": "AXISMUNDIRPG.InitiativeBonus"
+        },
+        "move": {
+          "value": 30,
+          "label": "AXISMUNDIRPG.Movement"
+        },
+        "saves": {
+          "paralysis": {
+            "value": 0
+          },
+          "death": {
+            "value": 0
+          },
+          "breath": {
+            "value": 0
+          },
+          "wands": {
+            "value": 0
+          },
+          "spells": {
+            "value": 0
+          }
+        }
+      }
+    },
+    "character": {
+      "templates": ["base"],
+      "abilities": {
+        "str": {
+          "value": 10
+        },
+        "dex": {
+          "value": 10
+        },
+        "con": {
+          "value": 10
+        },
+        "int": {
+          "value": 10
+        },
+        "wis": {
+          "value": 10
+        },
+        "cha": {
+          "value": 10
+        }
+      },
+      "preparedWeight": {
+        "value": 0
+      },
+      "carriedWeight": {
+        "value": 0
+      },
+      "age": {
+        "value": "",
+        "label": "AXISMUNDIRPG.Age"
+      },
+      "class": {
+        "value": "",
+        "label": "AXISMUNDIRPG.Class"
+      },
+      "race": {
+        "value": "",
+        "label": "AXISMUNDIRPG.Race"
+      },
+      "sex": {
+        "value": "",
+        "label": "AXISMUNDIRPG.Sex"
+      },
+      "level": {
+        "value": 1,
+        "label": "AXISMUNDIRPG.Level"
+      },
+      "money": {
+        "pp": {
+          "value": 0
+        },
+        "gp": {
+          "value": 0
+        },
+        "ep": {
+          "value": 0
+        },
+        "sp": {
+          "value": 0
+        },
+        "cp": {
+          "value": 0
+        }
+      },
+      "spellsPerLevel": {
+        "value": {
+          "1": 0,
+          "2": 0,
+          "3": 0,
+          "4": 0,
+          "5": 0,
+          "6": 0
+        },
+        "label": "AXISMUNDIRPG.SpellsPerLevel"
+      },
+      "xp": {
+        "value": 0,
+        "next": 2000,
+        "label": "AXISMUNDIRPG.ExperiencePoints",
+        "abbr": "AXISMUNDIRPG.ExperiencePointsAbbr"
+      },
+      "periciasCalculadas": {
+        "value": false
+      },
+      "requisitoPrimario": {
+        "value": "none"
+      }
+    },
+    "monster": {
+      "templates": ["base"],
+      "hitDice": {
+        "size": "d8",
+        "number": 1,
+        "mod": 0,
+        "label": "AXISMUNDIRPG.HitDice",
+        "abbr": "AXISMUNDIRPG.HitDiceAbbr"
+      },
+      "lairPercentage": {
+        "value": 0,
+        "label": "AXISMUNDIRPG.LairPercentageAbbr"
+      },
+      "monsterArmorClass": {
+        "value": "10",
+        "label": "AXISMUNDIRPG.ArmorClassAbbr"
+      },
+      "monsterAttacks": {
+        "value": "",
+        "label": "AXISMUNDIRPG.Attacks"
+      },
+      "monsterMovement": {
+        "value": "12",
+        "label": "AXISMUNDIRPG.Movement"
+      },
+      "monsterSaves": {
+        "value": "1",
+        "label": "AXISMUNDIRPG.SavesAbbr"
+      },
+      "morale": {
+        "value": 7,
+        "label": "AXISMUNDIRPG.Morale"
+      },
+      "numberAppearing": {
+        "value": "1d4",
+        "label": "AXISMUNDIRPG.NumberAppearingAbbr"
+      },
+      "treasureType": {
+        "value": "None",
+        "label": "AXISMUNDIRPG.TreasureType"
+      },
+      "reaction": {
+        "value": "0",
+        "label": "AXISMUNDIRPG.ReactionAbbr"
+      },
+      "shape": {
+        "value": "",
+        "label": "AXISMUNDIRPG.Shape"
+      },
+      "size": {
+        "value": "",
+        "label": "AXISMUNDIRPG.Size"
+      },
+      "type": {
+        "value": "",
+        "label": "AXISMUNDIRPG.Type"
+      },
+      "xp": {
+        "value": 0,
+        "label": "AXISMUNDIRPG.ExperiencePoints",
+        "abbr": "AXISMUNDIRPG.ExperiencePointsAbbr"
+      }
+    }
+  },
+  "Item": {
+    "types": ["item", "container", "weapon", "armor", "spell", "pericia", "feature", "monsterSkill"],
+    "templates": {
+      "base": {
+        "description": ""
+      },
+      "valuable": {
+        "price": {
+          "value": "",
+          "label": "AXISMUNDIRPG.Price"
+        },
+        "weight": {
+          "value": 1,
+          "label": "AXISMUNDIRPG.Weight"
+        },
+        "prepared" : {
+          "value": false
+        }
+      }
+    },
+    "item": {
+      "templates": ["base", "valuable"],
+      "quantity": {
+        "value": 1,
+        "label": "AXISMUNDIRPG.Quantity"
+      }
+    },
+    "container": {
+      "templates": ["base", "valuable"],
+      "quantity": {
+        "value": 1,
+        "label": "AXISMUNDIRPG.Quantity"
+      },
+      "capacity": {
+        "value": 10,
+        "label": "AXISMUNDIRPG.Capacity"
+      }
+    },
+    "weapon": {
+      "templates": ["base", "valuable"],
+      "attackBonus": {
+        "value": 0,
+        "label": "AXISMUNDIRPG.AttackBonus"
+      },
+      "damage": {
+        "value": "1d6",
+        "label": "AXISMUNDIRPG.Damage",
+        "abbr": "AXISMUNDIRPG.DamageAbbr"
+      },
+      "weaponType":{
+        "value": "m",
+        "label": "AXISMUNDIRPG.WeaponType"
+      },
+      "size": {
+        "value": "M",
+        "label": "AXISMUNDIRPG.Size"
+      }
+    },
+    "armor": {
+      "templates": ["base", "valuable"],
+      "armorClass": {
+        "value": 11,
+        "label": "AXISMUNDIRPG.ArmorClass",
+        "abbr": "AXISMUNDIRPG.ArmorClassAbbr"
+      }
+    },
+    "spell": {
+      "templates": ["base"],
+      "type": {
+        "value": "",
+        "label": "AXISMUNDIRPG.SpellType"
+      },
+      "category": {
+        "value": "",
+        "label": "AXISMUNDIRPG.SpellCategory"
+      },
+      "target": {
+        "value": "",
+        "label": "AXISMUNDIRPG.SpellTarget"
+      },
+      "duration": {
+        "value": "",
+        "label": "AXISMUNDIRPG.SpellDuration"
+      },
+      "prepared": {
+        "value": 0,
+        "label": "AXISMUNDIRPG.Prepared"
+      },
+      "range": {
+        "value": "",
+        "label": "AXISMUNDIRPG.SpellRange"
+      },
+      "resistance": {
+        "value": "",
+        "label": "AXISMUNDIRPG.SpellResistance"
+      },
+      "cost": {
+        "value": "",
+        "label": "AXISMUNDIRPG.SpellCost"
+      },
+      "spellLevel": {
+        "value": 1,
+        "label": "AXISMUNDIRPG.SpellLevel"
+      }
+    },
+    "pericia": {
+      "templates": ["base"],
+      "rollUnder": {
+        "value": true,
+        "label": "AXISMUNDIRPG.RollUnder"
+      },
+      "cantidad": {
+        "value": "0",
+        "label": "Valor"
+      },
+      "advanced": {
+        "value": true,
+        "label": "avanzada"
+      },
+      "invisible": {
+        "value": false,
+        "lavel": "invisible"
+      },
+      "valorBase": {
+        "value": 0,
+        "lavel": "Valor base"
+      },
+      "caracteristica": {
+        "value": "",
+        "lavel": "Característica"
+      },
+      "periciaCalculada": {
+        "value": false
+      }
+    },
+    "feature": {
+      "templates": ["base"],
+      "sfLevel": {
+        "value": 1,
+        "label": "AXISMUNDIRPG.SFLevel"
+      },
+      "sfType": {
+        "value": "",
+        "label": "AXISMUNDIRPG.SFType"
+      }
+    },
+    "monsterSkill": {
+      "templates": ["base"]
+    }
+  }
+}

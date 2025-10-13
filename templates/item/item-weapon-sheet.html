@@ -1,0 +1,45 @@
+<form class="{{cssClass}}" autocomplete="off">
+  <header class="sheet-header">
+    <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}"/>
+    <div class="header-fields">
+      <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="{{localize 'AXISMUNDIRPG.Name'}}"/></h1>
+      <div class="grid grid-3col">
+        <div class="resource">
+          <label for="system.price.value" class="resource-label">{{localize data.price.label}}</label>
+          <input type="text" name="system.price.value" value="{{data.price.value}}" data-dtype="String"/>
+        </div>
+        <div class="resource">
+          <label for="system.weight.value" class="resource-label">{{localize data.weight.label}}</label>
+          <input type="text" name="system.weight.value" value="{{data.weight.value}}" data-dtype="String"/>
+        </div>
+        <div class="resource">
+          <label for="system.damage.value" class="resource-label">{{localize data.damage.label}}</label>
+          <input type="text" name="system.damage.value" value="{{data.damage.value}}" data-dtype="String"/>
+        </div>
+        <div class="resource">
+          <label for="system.bonusAb.value" class="resource-label">{{localize data.attackBonus.label}}</label>
+          <input type="text" name="system.attackBonus.value" value="{{data.attackBonus.value}}" data-dtype="Number"/>
+        </div>
+        <div class="resource">
+          <label for="system.weaponType.value" class="resource-label">{{localize data.weaponType.label}}</label>
+          <select class="w120" name="system.weaponType.value">
+            <option value="m" {{#if (eq data.weaponType.value 'm')}} selected {{/if}}>{{localize 'AXISMUNDIRPG.Melee'}}</option>
+            <option value="r" {{#if (eq data.weaponType.value 'r')}} selected {{/if}}>{{localize 'AXISMUNDIRPG.Ranged'}}</option>
+            <option value="s" {{#if (eq data.weaponType.value 's')}} selected {{/if}}>{{localize 'AXISMUNDIRPG.Shield'}}</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  {{!-- Sheet Body --}}
+  <section class="sheet-body">
+
+    {{!-- Description Tab --}}
+    <div class="description">
+      {{editor enrichedDescription target="system.description" button=true editable=editable}}
+    </div>
+
+  </section>
+
+</form>

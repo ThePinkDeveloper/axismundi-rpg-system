@@ -305,7 +305,6 @@ export class AxisMundiRPGActorSheet extends ActorSheet {
         features.push(i);
       } else if (i.type === 'monsterSkill') { // Append to monsterSkills.
         monsterSkills.push(i);
-        console.log(monsterSkills);
       }
     }
 
@@ -511,7 +510,10 @@ export class AxisMundiRPGActorSheet extends ActorSheet {
             this.actor.system.meleeAttackBonus.value
             rollFormula += '+@dex.bonus+' + this.actor.system.rangedAttackBonus.value;;
           }
-          
+        } else if (this.actor.type === 'monster') {
+          let attackBonus = 0;
+          attackBonus = this.actor.system.attackBonus.value;
+          rollFormula += '+' + attackBonus;
         }
         rollFormula += '+' + item.system.attackBonus.value;
         let roll = new Roll(rollFormula, this.actor.getRollData());

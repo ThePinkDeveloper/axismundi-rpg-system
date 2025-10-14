@@ -188,7 +188,8 @@
       },
       "monsterArmorClass": {
         "value": "10",
-        "label": "AXISMUNDIRPG.ArmorClassAbbr"
+        "label": "AXISMUNDIRPG.ArmorClass",
+        "abbr": "AXISMUNDIRPG.ArmorClassAbbr"
       },
       "monsterAttacks": {
         "value": "",
@@ -199,7 +200,7 @@
         "label": "AXISMUNDIRPG.Movement"
       },
       "monsterSaves": {
-        "value": "1",
+        "value": 1,
         "label": "AXISMUNDIRPG.SavesAbbr"
       },
       "morale": {
@@ -208,7 +209,8 @@
       },
       "numberAppearing": {
         "value": "1d4",
-        "label": "AXISMUNDIRPG.NumberAppearingAbbr"
+        "label": "AXISMUNDIRPG.NumberAppearing",
+        "abbr": "AXISMUNDIRPG.NumberAppearingAbbr"
       },
       "treasureType": {
         "value": "None",

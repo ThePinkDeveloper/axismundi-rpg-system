@@ -39,11 +39,15 @@
 </section>
 {{/if}}
 
+<section class="resources bgcred mb-10px">
+  <div class="item-detail-wf15">&nbsp;&nbsp;&nbsp;<span>Carga Preparada: </span><strong>{{preparedWeightValue}}&nbsp;{{localize 'AXISMUNDIRPG.KilogramsAbbr'}}</strong> / <span>Carga Transportada: </span><strong>{{carriedWeightValue}}&nbsp;{{localize 'AXISMUNDIRPG.KilogramsAbbr'}}</strong>&nbsp;/&nbsp;<span>Carga Transportada Máxima: </span><strong>{{maxCarriedWeightValue}}&nbsp;{{localize 'AXISMUNDIRPG.KilogramsAbbr'}}</strong></div>
+</section>
+
 <ol class="items-list">
   <li class="item flexrow items-header">
     <div class="item-name">{{localizeItemNameForActor actor.type}}</div>
-    <div class="item-detail">Preparada</div>
-    <div class="item-detail-wf15">Carga Pr. / Tr.: {{preparedWeightValue}}&nbsp;{{localize 'AXISMUNDIRPG.KilogramsAbbr'}} / {{carriedWeightValue}}&nbsp;{{localize 'AXISMUNDIRPG.KilogramsAbbr'}}</div>
+    <div class="item-list"><div>Preparada</div></div>
+    <div class="item-list">Peso</div>
     <div class="item-controls">
       <a class="item-control item-create" title="Create item" data-type="item"><i class="fas fa-plus"></i> {{localize 'AXISMUNDIRPG.Add'}}</a>
     </div>
@@ -59,9 +63,8 @@
       <div class="item-prop f05">
         <div class="flex-center"><input class="cb15 item-prepared" name="item.system.prepared.value" type="checkbox" {{#if item.system.prepared.value}} checked {{/if}}></div>
       </div>
-      <div class="item-prop f10 grid grid-2col">
-        <div class="flex-left align-right">{{item.system.weight.value}}&nbsp;{{localize 'AXISMUNDIRPG.KilogramsAbbr'}}</div>
-        <div class="flex-right">{{item.system.price.value}}</div>
+      <div class="item-prop f05">
+        <div class="flex-center">{{item.system.weight.value}}&nbsp;{{localize 'AXISMUNDIRPG.KilogramsAbbr'}}</div>
       </div>
       <div class="item-controls">
         <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>

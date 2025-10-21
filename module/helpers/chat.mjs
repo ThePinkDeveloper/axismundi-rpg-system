@@ -9,20 +9,20 @@
  */
 export function successChatMessage(result, targetNumber, rollUnder=false) {
   let msg = '';
-  let success = false;
-  if (result && !isNaN(result) && targetNumber && !isNaN(targetNumber)) {
-    if (rollUnder) {
-      success = (Number(result) <= Number(targetNumber));
-    } else {
-      success = (Number(result) === 20 || (Number(result) > 1 && Number(result) >= Number(targetNumber)));
-    }
-    msg += `<span class="chat-item-description">`;
-    if (success) {
-      msg += `<span class="chat-roll-success">&#9989;&nbsp;${game.i18n.localize('AXISMUNDIRPG.Success')}</span>`;
-    } else {
-      msg += `<span class="chat-roll-failure">&#9940;&nbsp;${game.i18n.localize('AXISMUNDIRPG.Failure')}</span>`;
-    }
-    msg += ` ${game.i18n.localize('AXISMUNDIRPG.VersusAbbr')} ${game.i18n.localize('AXISMUNDIRPG.TargetNumber').toLowerCase()} <span class="chat-roll-target-number">${targetNumber}</span></span>`;
-  }
+  // let success = false;
+  // if (result && !isNaN(result) && targetNumber && !isNaN(targetNumber)) {
+  //   if (rollUnder) {
+  //     success = (Number(result) <= Number(targetNumber));
+  //   } else {
+  //     success = (Number(result) === 20 || (Number(result) > 1 && Number(result) >= Number(targetNumber)));
+  //   }
+  //   msg += `<span class="chat-item-description">`;
+  //   if (success) {
+  //     msg += `<span class="chat-roll-success">&#9989;&nbsp;${game.i18n.localize('AXISMUNDIRPG.Success')}</span>`;
+  //   } else {
+  //     msg += `<span class="chat-roll-failure">&#9940;&nbsp;${game.i18n.localize('AXISMUNDIRPG.Failure')}</span>`;
+  //   }
+  //   msg += ` ${game.i18n.localize('AXISMUNDIRPG.VersusAbbr')} ${game.i18n.localize('AXISMUNDIRPG.TargetNumber').toLowerCase()} <span class="chat-roll-target-number">${targetNumber}</span></span>`;
+  // }
   return msg;
 }

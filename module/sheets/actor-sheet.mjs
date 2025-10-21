@@ -120,6 +120,7 @@ export class AxisMundiRPGActorSheet extends ActorSheet {
     // Initialize containers.
     const gear = [];
     const weapons = [];
+    const ammos = [];
     const armors = [];
     const spells = {
       1: [],
@@ -132,7 +133,7 @@ export class AxisMundiRPGActorSheet extends ActorSheet {
     const periciasBasicas = [];
     const periciasAvanzadas = [];
     const features = [];
-    const monsterSkills = []
+    const monsterSkills = [];
 
     // Define an object to store carried weight.
     let preparedWeight = {
@@ -188,6 +189,7 @@ export class AxisMundiRPGActorSheet extends ActorSheet {
     };
 
     if (context.items.filter(item => item.type === 'pericia').length === 0) {
+      
       const alertaPericiaData = {
         name: 'Alerta',
         type: 'pericia'
@@ -305,7 +307,9 @@ export class AxisMundiRPGActorSheet extends ActorSheet {
         features.push(i);
       } else if (i.type === 'monsterSkill') { // Append to monsterSkills.
         monsterSkills.push(i);
-        console.log(monsterSkills);
+      } else if (i.type === 'ammo') { // Append to ammos.
+        ammos.push(i);
+        carriedWeight._addWeight(i.system.weight.value, i.system.quantity.value);
       }
     }
 
@@ -322,6 +326,7 @@ export class AxisMundiRPGActorSheet extends ActorSheet {
     // Assign and return
     context.gear = gear;
     context.weapons = weapons;
+    context.ammos = ammos;
     context.armors = armors;
     context.spells = spells;
     context.features = features.sort( (a, b) => a.system.sfLevel.value - b.system.sfLevel.value );
@@ -333,10 +338,10 @@ export class AxisMundiRPGActorSheet extends ActorSheet {
     context.weightLevel = weightLevel;
     context.monterSkills = monsterSkills;
 
+
     if (context.actor.type === 'character') {
       context.periciasBasicas = periciasBasicas;
       context.periciasAvanzadas = periciasAvanzadas;
-
       weightLevel._calculateWeightLevel(carriedWeight.value, this.actor.system.abilities.str.value);
 
       const weight = {}
@@ -369,6 +374,12 @@ export class AxisMundiRPGActorSheet extends ActorSheet {
 
     // Check Item Prepared
     html.find('.item-prepared').click(this._onItemPrepared.bind(this));
+
+        // Check Item Prepared
+    html.find('.add-ammo').click(this._onAddAmmo.bind(this));
+
+        // Check Item Prepared
+    html.find('.remove-ammo').click(this._onRemoveAmmo.bind(this));
     
     // Delete Inventory Item
     html.find('.item-delete').click(ev => {
@@ -511,7 +522,10 @@ export class AxisMundiRPGActorSheet extends ActorSheet {
             this.actor.system.meleeAttackBonus.value
             rollFormula += '+@dex.bonus+' + this.actor.system.rangedAttackBonus.value;;
           }
-          
+        } else if (this.actor.type === 'monster') {
+          let attackBonus = 0;
+          attackBonus = this.actor.system.attackBonus.value;
+          rollFormula += '+' + attackBonus;
         }
         rollFormula += '+' + item.system.attackBonus.value;
         let roll = new Roll(rollFormula, this.actor.getRollData());
@@ -585,4 +599,17 @@ export class AxisMundiRPGActorSheet extends ActorSheet {
     this.render(true);
   }
 
+  async _onAddAmmo(event) {
+    const li = $(event.currentTarget).parents('.item');
+    const item = this.actor.items.get(li.data('itemId'));
+    const newValue = item.system.quantity.value + 1;
+    item.update({'system.quantity.value': newValue});
+  }
+
+  async _onRemoveAmmo(event) {
+    const li = $(event.currentTarget).parents('.item');
+    const item = this.actor.items.get(li.data('itemId'));
+    const newValue = item.system.quantity.value <= 0 ? 0 : item.system.quantity.value - 1;
+    item.update({'system.quantity.value': newValue});
+  }
 }

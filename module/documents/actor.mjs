@@ -22,9 +22,6 @@ export class AxisMundiRPGActor extends Actor {
     // Make separate methods for each Actor type to keep things organized.
     this._prepareCharacterData(actorData);
     this._prepareMonsterData(actorData);
-    this._prepareSiegeEngineData(actorData);
-    this._prepareStrongholdData(actorData);
-    this._prepareVehicleData(actorData);
   }
 
   /**
@@ -101,18 +98,18 @@ export class AxisMundiRPGActor extends Actor {
     if (actorData.type !== 'monster') return;
 
     const data = actorData.system;
-
     data.attackBonus.value = this._calculateMonsterAttackBonus();
     this._calculateSavesValues(data);
   }
 
   _calculateSavesValues(data) {
     const savesMap = this._fillMonstersSaves();
-    data.saves.paralysis.value = savesMap.get(data.monsterSaves.value)[0];
-    data.saves.death.value = savesMap.get(data.monsterSaves.value)[1];
-    data.saves.breath.value = savesMap.get(data.monsterSaves.value)[2];
-    data.saves.wands.value = savesMap.get(data.monsterSaves.value)[3];
-    data.saves.spells.value = savesMap.get(data.monsterSaves.value)[4];
+    const savesValue = Number(data.monsterSaves.value);
+    data.saves.paralysis.value = savesMap.get(savesValue)[0];
+    data.saves.death.value = savesMap.get(savesValue)[1];
+    data.saves.breath.value = savesMap.get(savesValue)[2];
+    data.saves.wands.value = savesMap.get(savesValue)[3];
+    data.saves.spells.value = savesMap.get(savesValue)[4];
   }
 
   /**
@@ -120,37 +117,19 @@ export class AxisMundiRPGActor extends Actor {
    */
   _calculateMonsterAttackBonus() {
     const hitDiceNumber = this.system.hitDice.number;
-    if (hitDiceNumber < 1) {
-      return 0;
-    } else if (hitDiceNumber > 31) {
-      return 16;
+    const hitDiceMod = this.system.hitDice.mod;
+    let result = 0;
+
+    if (hitDiceNumber < 11) {
+      result = hitDiceNumber;
+    } else {
+      result = Math.ceil((hitDiceNumber- 10) / 2) + 10;      
     }
-    switch (hitDiceNumber) {
-      case 9: return 8;
-      case 10:
-      case 11: return 9
-      case 12:
-      case 13: return 10;
-      case 14:
-      case 15: return 11;
-      case 16:
-      case 17:
-      case 18:
-      case 19: return 12;
-      case 20:
-      case 21:
-      case 22:
-      case 23: return 13;
-      case 24:
-      case 25:
-      case 26:
-      case 27: return 14;
-      case 28:
-      case 29:
-      case 30:
-      case 31: return 15;
-      default: return hitDiceNumber; // this handles 1-9
+    if (hitDiceMod !== 0) {
+      result++;
     }
+    
+    return result;
   }
 
   /**
@@ -417,6 +396,13 @@ export class AxisMundiRPGActor extends Actor {
     map.set(12, [8, 7, 9, 9, 10]);      
     map.set(13, [7, 6, 8, 8, 9]);
     map.set(14, [6, 5, 7, 7, 8]);
+    map.set(15, [6, 5, 7, 7, 8]);
+    map.set(16, [5, 4, 6, 6, 7]);
+    map.set(17, [4, 3, 6, 6, 6]);
+    map.set(18, [4, 3, 5, 5, 6]);
+    map.set(19, [3, 2, 4, 4, 5]);
+    map.set(20, [2, 1, 4, 4, 4]);
+    map.set(21, [2, 1, 3, 3, 4]);
     return map;
   }
 }

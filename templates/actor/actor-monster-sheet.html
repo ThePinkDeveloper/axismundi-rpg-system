@@ -8,14 +8,14 @@
       <div class="d-flex-start">
         <div class="d-flex-pg w17">
           <div class="mr10">
-            <label for="system.hitPoints.value" class="resource-label">P.G.</label>
+            <label for="system.hitPoints.value" class="resource-label" title="{{localize 'AXISMUNDIRPG.HitPoints'}}">{{localize 'AXISMUNDIRPG.HitPointsAbbr'}}</label>
             <div class="resource-content flexrow flex-center flex-between">
               <h1 class="charname"><input type="text" name="system.hitPoints.value" value="{{data.hitPoints.value}}" data-dtype="Number"/></h1>
             </div>
           </div>
         
           <div class="bl1">
-            <label for="system.hitPoints.value" class="resource-label">Max.</label>
+            <label for="system.hitPoints.value" class="resource-label" title="{{localize 'AXISMUNDIRPG.HitPointsMax'}}">{{localize 'AXISMUNDIRPG.HitPointsMaxAbbr'}}</label>
             <div class="resource-content flexrow flex-center flex-between">
               <input type="text" name="system.hitPoints.max" value="{{data.hitPoints.max}}" data-dtype="Number"/>
             </div>
@@ -27,7 +27,7 @@
           <div class="resources grid grid-8col">
 
             <div class="resource flex-group-center column-span-2">
-              <label for="system.hitDice" class="resource-label rollable" title="{{localize 'AXISMUNDIRPG.Roll'}} {{localize data.hitDice.label}}" data-roll="{{data.hitDice.number}}{{data.hitDice.size}}{{numberFormat data.hitDice.mod decimals=0 sign=true}}" data-label="{{localize data.hitDice.label}}">{{localize data.hitDice.abbr}}</label>
+              <label for="system.hitDice" class="resource-label rollable" title="{{localize 'AXISMUNDIRPG.Roll'}} de {{localize data.hitDice.label}}" data-roll="{{data.hitDice.number}}{{data.hitDice.size}}{{numberFormat data.hitDice.mod decimals=0 sign=true}}" data-label="{{localize data.hitDice.label}}">{{localize data.hitDice.abbr}}</label>
               <div class="resource-content flexrow flex-center flex-between">
                 <input type="number" name="system.hitDice.number" value="{{data.hitDice.number}}" data-dtype="Number"/>
                 <input type="text" name="system.hitDice.size" value="{{data.hitDice.size}}" data-dtype="String"/>
@@ -52,32 +52,32 @@
             </div>
 
             <div class="resource flex-group-center column-span-2">
-              <label for="system.numberAppearing.value" class="resource-label">{{localize 'AXISMUNDIRPG.NumberAppearingAbbr'}}</label>
+              <label for="system.numberAppearing.value" class="resource-label" title="{{localize 'AXISMUNDIRPG.NumberAppearing'}}">{{localize data.numberAppearing.abbr}}</label>
               <input type="text" name="system.numberAppearing.value" value="{{data.numberAppearing.value}}" data-dtype="String"/>
             </div>
 
             <div class="resource flex-group-center">
-              <label for="system.lairPercentage.value" class="resource-label">{{localize 'AXISMUNDIRPG.LairPercentageAbbr'}}</label>
+              <label for="system.lairPercentage.value" class="resource-label rollable" title="{{localize 'AXISMUNDIRPG.LairPercentage'}}" data-roll="1d100" data-label="{{localize 'AXISMUNDIRPG.LairPercentage'}}">{{localize 'AXISMUNDIRPG.LairPercentageAbbr'}}</label>
               <input type="number" name="system.lairPercentage.value" value="{{data.lairPercentage.value}}" data-dtype="Number"/>
             </div>
 
             <div class="resource flex-group-center">
-              <label for="system.monsterSaves.value" class="resource-label">{{localize 'AXISMUNDIRPG.SavesAbbr'}}</label>
+              <label for="system.monsterSaves.value" class="resource-label" title="{{localize 'AXISMUNDIRPG.Save'}}">{{localize 'AXISMUNDIRPG.SavesAbbr'}}</label>
               <input type="number" name="system.monsterSaves.value" value="{{data.monsterSaves.value}}" data-dtype="Number"/>
             </div>
 
             <div class="resource flex-group-center">
-              <label for="system.reaction.value" class="resource-label">{{localize 'AXISMUNDIRPG.ReactionAbbr'}}</label>
+              <label for="system.reaction.value" class="resource-label rollable" title="{{localize 'AXISMUNDIRPG.Reaction'}}" data-roll="2d6+{{data.reaction.value}}" data-label="{{localize 'AXISMUNDIRPG.Reaction'}}">{{localize 'AXISMUNDIRPG.ReactionAbbr'}}</label>
               <input type="number" name="system.reaction.value" value="{{data.reaction.value}}" data-dtype="String"/>
             </div>
 
             <div class="resource flex-group-center">
-              <label for="system.morale.value" class="resource-label">{{localize 'AXISMUNDIRPG.Morale'}}</label>
+              <label for="system.morale.value" class="resource-label rollable" data-roll="2d6" data-label="{{localize 'AXISMUNDIRPG.Morale'}}"">{{localize 'AXISMUNDIRPG.Morale'}}</label>
               <input type="number" name="system.morale.value" value="{{data.morale.value}}" data-dtype="Number"/>
             </div>
 
             <div class="resource flex-group-center">
-              <label for="system.xp.value" class="resource-label">{{localize 'AXISMUNDIRPG.ExperiencePointsAbbr'}}</label>
+              <label for="system.xp.value" class="resource-label" title="{{localize 'AXISMUNDIRPG.ExperiencePoints'}}">{{localize 'AXISMUNDIRPG.ExperiencePointsAbbr'}}</label>
               <input type="number" name="system.xp.value" value="{{data.xp.value}}" data-dtype="Number"/>
             </div>
 
@@ -110,8 +110,8 @@
           <div class="abilities flexcol">
             {{#each data.saves as |save key|}}
             <div class="ability flexrow flex-group-center">
-              <label for="system.saves.{{key}}.value" class="resource-label rollable flexlarge align-left" title="{{localize 'AXISMUNDIRPG.Roll'}} {{localize 'AXISMUNDIRPG.SavingThrow'}}" data-roll="d20" data-label="Salvación - {{save.label}}" data-target-number="{{save.value}}">{{save.label}}</label>
-              <span class="ability-mod rollable" title="{{localize 'AXISMUNDIRPG.SavingThrow'}} de {{save.label}}" data-roll="d20">{{save.value}}</span>
+              <label for="system.saves.{{key}}.value" class="resource-label rollable flexlarge align-left" title="{{localize 'AXISMUNDIRPG.SavingThrow'}} de {{save.label}}" data-roll="d20" data-label="Salvación contra {{save.label}}" data-target-number="{{save.value}}">{{save.label}}</label>
+              <input type="text" name="system.saves.{{key}}.value" value="{{save.value}}" data-dtype="Number"/>
             </div>
             {{/each}}
           </div>

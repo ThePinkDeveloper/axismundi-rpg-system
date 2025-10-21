@@ -240,7 +240,7 @@
     }
   },
   "Item": {
-    "types": ["item", "container", "weapon", "armor", "spell", "pericia", "feature", "monsterSkill"],
+    "types": ["item", "container", "weapon", "ammo", "armor", "spell", "pericia", "feature", "monsterSkill"],
     "templates": {
       "base": {
         "description": ""
@@ -295,6 +295,13 @@
       "size": {
         "value": "M",
         "label": "AXISMUNDIRPG.Size"
+      }
+    },
+    "ammo": {
+      "templates": ["base", "valuable"],
+      "quantity": {
+        "value": 20,
+        "label": "AXISMUNDIRPG.Quantity"
       }
     },
     "armor": {
@@ -386,7 +393,12 @@
       }
     },
     "monsterSkill": {
-      "templates": ["base"]
+      "templates": ["base"],
+      "skillLevel": {
+        "value": 1,
+        "label": "AXISMUNDIRPG.SkillLevel"
+      }
+
     }
   }
 }

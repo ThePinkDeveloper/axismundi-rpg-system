@@ -1,6 +1,7 @@
 <ol class="items-list">
   <li class="item flexrow items-header">
     <div class="item-name">{{localize 'ITEM.TypeSkill'}}</div>
+    <div class="item-detail align-center">{{localize 'AXISMUNDIRPG.SkillLevel'}}</div>
     <div class="item-controls">
       <a class="item-control item-create" title="Create item" data-type="monsterSkill"><i class="fas fa-plus"></i> {{localize 'AXISMUNDIRPG.Add'}}</a>
     </div>
@@ -12,6 +13,9 @@
           <img src="{{item.img}}" title="{{item.name}}" width="24" height="24"/>
         </div>
         <h4>{{item.name}}</h4>
+      </div>
+      <div class="item-prop">
+        <h4>{{item.system.skillLevel.value}}</h4>
       </div>
       <div class="item-controls">
         <a class="item-control item-edit" title="Edit Item"><i class="fas fa-edit"></i></a>

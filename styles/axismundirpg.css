@@ -904,3 +904,11 @@ input.w50px {
 .ml10 {
   margin-left: 10px;
 }
+
+.r50 {
+  border-radius: 50%;
+}
+
+.cred {
+  color: red;
+}

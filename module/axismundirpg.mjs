@@ -52,28 +52,6 @@ Hooks.once('init', async function() {
 /*  Handlebars Helpers & Partials               */
 /* -------------------------------------------- */
 
-Handlebars.registerHelper('calculateAbilityTargetNumber', function(lvl) {
-  return Math.floor(17 - (lvl / 2 - lvl % 2));
-});
-
-Handlebars.registerHelper('localizeFloorMaterial', function(type) {
-  switch (type) {
-    case 'roofThatch': return game.i18n.localize('AXISMUNDIRPG.RoofThatched');
-    case 'roofSlate' : return game.i18n.localize('AXISMUNDIRPG.RoofSlate');
-    case 'roofWood'  : return game.i18n.localize('AXISMUNDIRPG.RoofWood');
-    default          : return game.i18n.localize('ITEM.TypeFloor');
-  }
-});
-
-Handlebars.registerHelper('localizeWallMaterial', function(type) {
-  switch (type) {
-    case 'stoneHard' : return game.i18n.localize('AXISMUNDIRPG.MaterialStoneHard');
-    case 'stoneSoft' : return game.i18n.localize('AXISMUNDIRPG.MaterialStoneSoft');
-    case 'brick'     : return game.i18n.localize('AXISMUNDIRPG.MaterialBrick');
-    case 'wood'      : return game.i18n.localize('AXISMUNDIRPG.MaterialWood');
-    default          : return game.i18n.localize('ITEM.TypeFloor');
-  }
-});
 
 Handlebars.registerHelper('localizeItemNameForActor', function(type) {
   if (type === 'stronghold') {

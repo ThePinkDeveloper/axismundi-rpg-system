@@ -541,7 +541,7 @@ export class AxisMundiRPGActorSheet extends ActorSheet {
         const itemId = element.closest('.item').dataset.itemId;
         const item = this.actor.items.get(itemId);
         let label = `<span class="chat-item-name">Tirada de daño: ${item.name}</span>`
-        const rollFormula = `${item.system.damage.value}+${item.system.weaponType.value === 'r' ? this.actor.system.rangedDamageBonus.value : this.actor.system.meleeDamageBonus.value}`;
+        const rollFormula = `${item.system.damage.value}+${item.system.weaponType.value === 'r' ? '' : this.actor.system.abilities.str.bonus}+${item.system.weaponType.value === 'r' ? this.actor.system.rangedDamageBonus.value : this.actor.system.meleeDamageBonus.value}`;
         const roll = new Roll(rollFormula, this.actor.getRollData());
         roll.toMessage({
           speaker: ChatMessage.getSpeaker({ actor: this.actor }),
